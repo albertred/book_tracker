@@ -7,7 +7,7 @@ class Book {
     }
 }
 
-// UI class: handles UI tasks 
+// UI class: handles UI tasks  hello
 class UI {
     static displayBooks() {
         const books = Store.getBooks()
@@ -132,11 +132,11 @@ if(title ==='' || author === '' || comments === '') {
 // removing a book when button is pressed
 document.querySelector('#book-list').addEventListener('click', (e) => {
     UI.deleteBook(e.target);
- // e.target givses link
+ // e.target gives link
  Store.removeBook(e.target.parentElement.parentElement.querySelector('td:nth-child(3)').textContent.trim());
 
    
    
     UI.showAlert('Book Successfully Deleted!', 'success');
 });
-// need event propogation 
+
