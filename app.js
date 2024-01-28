@@ -1,4 +1,5 @@
 // book class -> represents book
+//
 class Book {
     constructor(title, author, comments) {
         this.title = title;
