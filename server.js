@@ -1,12 +1,15 @@
 // importing installed libraries  (were installed using npm)
 const express = require("express");
 const app = express();
+const bcrypt = require("bcrypt"); // importing package
 
 const users = []
 
 app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: false}));
+
+app.post("")
 
 // Routes 
 app.get('/', (req, res) => {
@@ -23,5 +26,7 @@ app.get('/register', (req, res) => {
 })
 // End Routes
 app.listen(3000) // ?? 
+
+// downloaded passport and passport-local and express-session; express-flash
 
 // hash password with library called decrypt
