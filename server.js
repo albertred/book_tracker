@@ -9,7 +9,22 @@ app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: false}));
 
-app.post("")
+// saves info when a user registers
+app.post("/register", async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        users.push({
+            id: Date.now().toString(), // id is different for each user
+            email: req.body.email,
+            password: hashedPassword,
+        })
+        console.log(users)
+        res.redirect("/login")
+    } catch (e) { // error case, goes back to register
+        console.log(e)
+        res.redirect("/register")
+    }
+})
 
 // Routes 
 app.get('/', (req, res) => {
@@ -25,6 +40,7 @@ app.get('/register', (req, res) => {
     res.render("register.ejs")
 })
 // End Routes
+console.log(users)
 app.listen(3000) // ?? 
 
 // downloaded passport and passport-local and express-session; express-flash
