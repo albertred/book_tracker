@@ -2,7 +2,15 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt"); // importing package
+const passport = require("passport")
+const initializePassport = require("./passport-config")
 
+initializePassport(
+    passport, 
+    email => users.find(user => user.email === email)
+    // checks if the email is in users
+    
+    )
 const users = []
 
 app.use(express.static('public'));
